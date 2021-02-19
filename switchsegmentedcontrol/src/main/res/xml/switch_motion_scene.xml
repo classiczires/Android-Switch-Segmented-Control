@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/ending_set"
+        motion:constraintSetStart="@+id/starting_set"
+        motion:duration="200"
+        motion:motionInterpolator="easeInOut" />
+
+    <ConstraintSet android:id="@+id/starting_set">
+        <Constraint
+            android:id="@+id/switch_selected"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/switch_first_item"
+            motion:layout_constraintLeft_toLeftOf="@+id/switch_first_item"
+            motion:layout_constraintRight_toRightOf="@+id/switch_first_item"
+            motion:layout_constraintTop_toTopOf="@+id/switch_first_item" />
+
+        <Constraint
+            android:id="@+id/switch_first_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toRightOf="@+id/switch_second_item"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#FFFFFF" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/switch_second_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintRight_toLeftOf="@+id/switch_first_item"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#999999" />
+        </Constraint>
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/ending_set">
+        <Constraint
+            android:id="@+id/switch_selected"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            motion:layout_constraintBottom_toBottomOf="@+id/switch_second_item"
+            motion:layout_constraintHorizontal_chainStyle="spread_inside"
+            motion:layout_constraintLeft_toLeftOf="@+id/switch_second_item"
+            motion:layout_constraintRight_toRightOf="@+id/switch_second_item"
+            motion:layout_constraintTop_toTopOf="@+id/switch_second_item" />
+
+        <Constraint
+            android:id="@+id/switch_first_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toRightOf="@+id/switch_second_item"
+            motion:layout_constraintRight_toRightOf="parent"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#999999" />
+        </Constraint>
+
+        <Constraint
+            android:id="@+id/switch_second_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintLeft_toLeftOf="parent"
+            motion:layout_constraintRight_toLeftOf="@+id/switch_first_item"
+            motion:layout_constraintTop_toTopOf="parent">
+            <CustomAttribute
+                motion:attributeName="textColor"
+                motion:customColorValue="#FFFFFF" />
+        </Constraint>
+    </ConstraintSet>
+</MotionScene>
