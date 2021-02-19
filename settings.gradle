@@ -1,0 +1,3 @@
+include ':switchsegmentedcontrol'
+include ':app'
+rootProject.name = "AndroidSwitchSegmentedControlExample"
