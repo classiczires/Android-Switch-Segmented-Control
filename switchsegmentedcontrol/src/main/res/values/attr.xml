@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ZiresSwitchSegmentedControl">
+        <attr name="textToggleLeft" format="string" localization="suggested" />
+        <attr name="textToggleRight" format="string" localization="suggested" />
+        <attr name="activeBgColor" format="color" />
+        <attr name="activeTextColor" format="color" />
+        <attr name="inactiveTextColor" format="color" />
+        <attr name="borderColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="cornerRadius" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="textSize" format="dimension" />
+        <attr name="switchFontFamily" format="string" />
+    </declare-styleable>
+</resources>

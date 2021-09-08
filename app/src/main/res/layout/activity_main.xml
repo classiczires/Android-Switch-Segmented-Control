@@ -4,12 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
     tools:context=".MainActivity">
 
 
     <com.zires.switchsegmentedcontrol.ZiresSwitchSegmentedControl
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:activeBgColor="@color/green"
+        app:activeTextColor="@android:color/white"
+        app:backgroundColor="@android:color/white"
+        app:borderColor="@color/green"
+        app:cornerRadius="15dp"
+        app:inactiveTextColor="@android:color/darker_gray"
+        app:strokeWidth="12dp"
+        app:switchFontFamily="serif-monospace"
+        app:textSize="24sp"
+        app:textToggleLeft="TURN OFF"
+        app:textToggleRight="TURN ON"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
