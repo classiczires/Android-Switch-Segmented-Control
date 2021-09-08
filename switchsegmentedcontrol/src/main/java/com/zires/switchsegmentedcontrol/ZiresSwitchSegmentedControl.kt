@@ -106,10 +106,13 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
                     R.styleable.ZiresSwitchSegmentedControl_strokeWidth,
                     Default.STROKE_WIDTH
                 ).toInt()
-
                 switchBackgroundColor = attributes.getColor(
                     R.styleable.ZiresSwitchSegmentedControl_backgroundColor,
                     ContextCompat.getColor(context, Default.BACKGROUND_COLOR)
+                )
+                val isChecked = attributes.getBoolean(
+                    R.styleable.ZiresSwitchSegmentedControl_checked,
+                    Default.CHECKED
                 )
                 val typeface = Typeface.create(switchFontFamily, Typeface.BOLD)
                 switchFirstItem.text = rightToggleText
@@ -121,7 +124,7 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
 
                 val selectedGd = GradientDrawable()
                 selectedGd.setColor(activeBgColor)
-                selectedGd.cornerRadius = cornerRadius
+                selectedGd.cornerRadius = cornerRadius - (strokeWidth)
                 selected.background = selectedGd
 
                 val motionLayoutGd = GradientDrawable()
@@ -150,24 +153,32 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
                     }
                 }
 
+                setChecked(isChecked)
             } finally {
                 attributes.recycle()
             }
         }
     }
 
+    fun setChecked(checked: Boolean) {
+        if (checked) {
+            transitionStart = false
+            motionLayout.transitionToStart()
+        } else {
+            transitionStart = true
+            motionLayout.transitionToEnd()
+        }
+    }
+
+    fun getIsChecked(): Boolean {
+        return transitionStart
+    }
+
     private fun initOnClick() {
         transitionStart = true
         motionLayoutContainer.setOnClickListener {
             mSwitchChangeListener?.onToggleSwitchChangeListener(transitionStart)
-
-            if (transitionStart) {
-                transitionStart = false
-                motionLayout.transitionToEnd()
-            } else {
-                transitionStart = true
-                motionLayout.transitionToStart()
-            }
+            setChecked(transitionStart)
         }
     }
 
@@ -175,15 +186,12 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
         mSwitchChangeListener = listener
     }
 
-    private fun dp2px(context: Context, dp: Float): Float {
-        return dp * (context.resources.displayMetrics.densityDpi / 160f)
-    }
-
     interface OnSwitchChangeListener {
         fun onToggleSwitchChangeListener(isChecked: Boolean)
     }
 
     protected object Default {
+        const val CHECKED: Boolean = false
         val ACTIVE_BG_COLOR = R.color.green
         const val ACTIVE_TEXT_COLOR = android.R.color.white
         val INACTIVE_TEXT_COLOR = R.color.gray

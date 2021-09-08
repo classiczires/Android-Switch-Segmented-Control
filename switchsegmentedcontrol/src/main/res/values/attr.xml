@@ -12,5 +12,6 @@
         <attr name="strokeWidth" format="dimension" />
         <attr name="textSize" format="dimension" />
         <attr name="switchFontFamily" format="string" />
+        <attr name="checked" format="boolean" />
     </declare-styleable>
 </resources>
