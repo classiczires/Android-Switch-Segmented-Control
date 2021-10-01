@@ -27,7 +27,7 @@ allprojects {
 Add the dependency to the project build.gradle:
 ```Gradle
 dependencies {
-	        implementation 'com.github.classiczires:Android-Switch-Segmented-Control:1.0.4'
+	        implementation 'com.github.classiczires:Android-Switch-Segmented-Control:1.0.5'
 }
 ```
 
