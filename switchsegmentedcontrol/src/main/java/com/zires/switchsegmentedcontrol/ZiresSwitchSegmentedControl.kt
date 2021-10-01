@@ -174,6 +174,14 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
         return transitionStart
     }
 
+    fun setRightToggleText(text: String) {
+        switchFirstItem.text = text
+    }
+
+    fun setLeftToggleText(text: String) {
+        switchSecondItem.text = text
+    }
+
     private fun initOnClick() {
         transitionStart = true
         motionLayoutContainer.setOnClickListener {
