@@ -193,8 +193,8 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
     private fun initOnClick() {
         transitionStart = true
         motionLayoutContainer.setOnClickListener {
-            mSwitchChangeListener?.onToggleSwitchChangeListener(transitionStart)
             setChecked(transitionStart)
+            mSwitchChangeListener?.onToggleSwitchChangeListener(transitionStart)
         }
     }
 
