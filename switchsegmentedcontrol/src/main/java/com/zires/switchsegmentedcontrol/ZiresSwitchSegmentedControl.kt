@@ -75,6 +75,12 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
                     attributes.getString(R.styleable.ZiresSwitchSegmentedControl_textToggleLeft)
                 val rightToggleText =
                     attributes.getString(R.styleable.ZiresSwitchSegmentedControl_textToggleRight)
+
+                val switchOnIcon =
+                    attributes.getDrawable(R.styleable.ZiresSwitchSegmentedControl_switchOnIcon)
+                val switchOffIcon =
+                    attributes.getDrawable(R.styleable.ZiresSwitchSegmentedControl_switchOffIcon)
+
                 activeBgColor = attributes.getColor(
                     R.styleable.ZiresSwitchSegmentedControl_activeBgColor,
                     ContextCompat.getColor(context, Default.ACTIVE_BG_COLOR)
@@ -115,7 +121,26 @@ open class ZiresSwitchSegmentedControl : LinearLayout {
                     Default.CHECKED
                 )
                 val typeface = Typeface.create(switchFontFamily, Typeface.BOLD)
-                switchFirstItem.text = rightToggleText
+
+                if (switchOnIcon != null) {
+                    switchFirstItem.text = rightToggleText
+                    switchFirstItem.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        switchOnIcon,
+                        null,
+                        null,
+                        null
+                    )
+                }
+
+                if (switchOffIcon != null) {
+                    switchSecondItem.text = leftToggleText
+                    switchSecondItem.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                        switchOffIcon,
+                        null,
+                        null,
+                        null
+                    )
+                }
                 switchSecondItem.text = leftToggleText
                 switchFirstItem.typeface = typeface
                 switchSecondItem.typeface = typeface
