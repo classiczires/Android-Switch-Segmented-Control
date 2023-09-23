@@ -13,5 +13,7 @@
         <attr name="textSize" format="dimension" />
         <attr name="switchFontFamily" format="string" />
         <attr name="checked" format="boolean" />
+        <attr name="switchOnIcon" format="reference|color" />
+        <attr name="switchOffIcon" format="reference|color" />
     </declare-styleable>
 </resources>

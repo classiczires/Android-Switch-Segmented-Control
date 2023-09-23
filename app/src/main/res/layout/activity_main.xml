@@ -21,10 +21,10 @@
         app:cornerRadius="50dp"
         app:strokeWidth="2dp"
         app:textSize="48sp"
-        app:textToggleLeft="OFF"
-        app:textToggleRight="ON"
-
-
+        app:textToggleLeft="UnLock"
+        app:switchOnIcon="@drawable/ic_lock"
+        app:switchOffIcon="@drawable/ic_lock_open"
+        app:textToggleRight="Lock"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
